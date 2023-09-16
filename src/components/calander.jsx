@@ -6,7 +6,11 @@ function Calander() {
     const [year, setYear] = useState('_ _')
     const getDate = (props) => {
         let date=props.target.value
-        setDay(31-date+10)
+        if (date>=1) {
+            console.log("valid num")
+        }else{
+            console.log("invalid")
+        }
     }
     const getMonth = (props) => {
         let month=props.target.value
