@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './../styles/calender.css'
-import './../styles/dayFinder.css'
 import InputFields from './inputFields'
 
 function DayFinder(props) {
