@@ -1,11 +1,16 @@
 import './App.css'
-import Calander from './components/calander'
+import DayFinder from './components/dayFinder'
 
 function App() {
+  const currDay = new Date();
+  const currentDate = currDay.getDate()
+  const currentMonth = currDay.getMonth()
+  const currentYear = currDay.getFullYear()
+
   return (
     <div className="app">
-      <h1>Age Calculator</h1>
-      <Calander />
+      <h2>Day Finder</h2>
+      <DayFinder yr={currentYear} />
     </div>
   )
 }

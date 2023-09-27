@@ -7,10 +7,9 @@
     font-family: 'Poppins', sans-serif;
     padding: 20px 0;
 }
-.app>h1{
-    margin: 20px 0;
+.age-header{
+    display: flex;
 }
-
 @media screen and (max-width:576px) {
     .app{
         height: fit-content;
