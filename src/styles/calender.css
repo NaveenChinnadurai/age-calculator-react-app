@@ -11,35 +11,6 @@
     font-size: 15px;
     color: red;
 }
-.input-div {
-    display: flex;
-    padding: 20px;
-    border-bottom: 1px solid black;
-}
-
-.input-subdiv {
-    display: flex;
-    flex-direction: column;
-    margin: 0 10px;
-}
-
-label{
-    font-size: 22px;
-    font-weight: 600;
-}
-.input {
-    padding: 5px 10px;
-    width: 70px;
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: 700;
-    color: black;
-    margin: 10px;
-    outline: none;
-    background-color: white;
-    border: 1px solid rgb(78, 76, 76);
-}
-
 .txt-div {
     padding: 10px;
 }
@@ -64,28 +35,11 @@ label{
     font-size: 30px;
 
 }
-@media screen and (max-width:376px) {
+@media screen and (max-width:576px) {
     .cald-div {
         width: 80vw !important;
         height: fit-content;
         border-radius: 20px;
-    }
-
-    .input-div {
-        flex-direction: column;
-    }
-
-    .input-subdiv {
-        flex-direction: row;
-        margin: 10px 0;
-    }
-
-    .input {
-        padding: 3px 8px;
-        width: 50px;
-        font-size: 15px;
-        font-weight: 500;
-        margin: 0 10px;
     }
     .title {
         font-size: 20px !important;

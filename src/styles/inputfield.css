@@ -26,3 +26,21 @@ label{
     background-color: white;
     border: 1px solid rgb(78, 76, 76);
 }
+@media screen and (max-width:576px) {
+    .input-div {
+        flex-direction: column;
+    }
+
+    .input-subdiv {
+        flex-direction: row;
+        margin: 10px 0;
+    }
+
+    .input {
+        padding: 3px 8px;
+        width: 50px;
+        font-size: 15px;
+        font-weight: 500;
+        margin: 0 10px;
+    }
+}
