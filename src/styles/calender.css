@@ -1,26 +1,8 @@
-.cald-div {
-    height: 70vh;
-    width: 50vw;
-    background-color: #ffffff;
-    color: black;
-    padding: 10px;
-    border-radius: 50px;
-    border-bottom-right-radius: 150px;
-}
-.cald-div>p{
-    font-size: 15px;
-    color: red;
-}
-.txt-div {
-    padding: 10px;
-}
-
-.title {
-    font-size: 30px !important;
-}
-
 .age-text {
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .age-text>p {
@@ -28,41 +10,21 @@
     font-weight: 700;
 }
 
-.age-text {
-    margin:10px 0;
-}
-.title>span{
-    font-size: 30px;
-
-}
 @media screen and (max-width:576px) {
-    .cald-div {
-        width: 80vw !important;
-        height: fit-content;
-        border-radius: 20px;
-    }
-    .title {
-        font-size: 20px !important;
-    }
-    
-    .age-text {
-        padding: 0 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
 
+    .age-text {
+        padding: 10px 20px;
+        align-items: start;
     }
-    
+
     .age-text>p {
         font-size: 25px;
         font-weight: 700;
-        margin: 10px 0;
         width: 70%;
         display: flex;
-        justify-content: start;
     }
-    .age-txt{
+
+    .age-txt {
         margin: 0 5px;
     }
 }

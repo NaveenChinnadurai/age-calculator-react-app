@@ -1,41 +1,33 @@
 import { useState } from 'react';
 import './App.css'
-import Calander from './components/calander'
+import AgeCalculator from './components/ageCalculator'
 import DayFinder from './components/dayFinder'
+import Input from './components/input';
 
 function App() {
-  const currDay = new Date();
-  const currentDate = currDay.getDate()
-  const currentMonth = currDay.getMonth()
-  const currentYear = currDay.getFullYear()
+  const [dateInput, setDateInput] = useState("0")
+  const [monthInput, setMonthInput] = useState("0")
+  const [yearInput, setYearInput] = useState("0")
 
-  function DayFinderCompo() {
-    return (
-      <div className="dayfinder">
-        <div className="dayfinder-header">
-          <h2>Day Finder</h2>
-          <button onClick={() =>  setArea(<CalenderComp/>)} className='change-btn'>Age Calc</button>
-        </div>
-        <DayFinder yr={currentYear} />
-      </div>
-    )
+  const inputDate = new Date(yearInput, monthInput - 1, dateInput);
+
+  const [clicks, setClicks] = useState(1);
+  const handleBtnClick = () => {
+    setClicks(clicks + 1);
   }
-  function CalenderComp() {
-    return (
-      <div className="dayfinder">
-        <div className="dayfinder-header">
-          <h2>Age Calculator</h2>
-          <button onClick={() =>  setArea(<DayFinderCompo/>) } className='change-btn'>Day Finder</button>
-        </div>
-        <Calander currDate={currentDate} currMon={currentMonth} currYr={currentYear} />
-      </div>
-    )
-  }
-  const [area, setArea] = useState(<DayFinderCompo />)
   return (
     <div className="app">
-      {area}
+      <div className="header">
+        <h2>
+          { clicks % 2 === 0 ?"Age Calculator":"Day Finder" }
+        </h2>
+        <button onClick={handleBtnClick} className='change-btn'>{ clicks % 2 === 0 ?"Day Finder" : "Age Calculator"}</button>
+      </div>
+      <div className="container">
+        <Input getDate={setDateInput} getMonth={setMonthInput} getYear={setYearInput} />
+        { clicks % 2 === 0 ?<AgeCalculator date={inputDate} />:<DayFinder date={inputDate} /> }
+      </div>
     </div>
   )
 }
-export default App
+export default App;

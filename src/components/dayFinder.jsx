@@ -1,55 +1,42 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './../styles/calender.css'
-import InputFields from './inputFields'
 
 function DayFinder(props) {
 
-  const [birthDate, setBirthDate] = useState(0)
-  const [birthMonth, setBirthMonth] = useState(0)
-  const [birthYear, setBirthYear] = useState(0)
+  const date = props.date.getDate();
+  const month = props.date.getMonth();
+  const year = props.date.getFullYear();
 
-  const [errorMsg, setErrorMsg] = useState("")
-
-  const getDate = (props) => {
-    let bDate = props.target.value
-    if (bDate > 0 && bDate <= 31) {
-      setBirthDate(bDate)
-      setErrorMsg("")
-    } else {
-      setErrorMsg("*enter valid date, invalid date")
-    }
-
-  }
-  const getMonth = (props) => {
-    let bMonth = props.target.value
-    if (bMonth > 0 && bMonth <= 12) {
-      setBirthMonth(bMonth)
-      setErrorMsg("")
-    } else {
-      setErrorMsg("*enter valid Month, invalid Month")
-    }
-  }
-  let yr = props.yr
-  const getYear = (props) => {
-    let bYear = props.target.value
-    if (bYear > 1) {
-      setErrorMsg("")
-      setBirthYear(bYear)
-    } else {
-      setErrorMsg("*enter valid Year, invalid Year")
-    }
+  function getDay(year, month, date) {
+    const inputDate = new Date(year, month , date);
+    const dayIndex = inputDate.getDay();
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return days[dayIndex];
   }
 
-  //for day predictor
+  const day = getDay(year, month, date);
+
+  return (
+    <div className='txt-div'>
+      <p className="title">The Day is {day}</p>
+    </div>
+  )
+}
+
+export default DayFinder
+
+
+
+/* Logic using aptitude 
   const isLeapYear = (year) => {
-    if (year % 100 == 0) {
-      if (year % 400 == 0) {
+    if (year % 100 === 0) {
+      if (year % 400 === 0) {
         return true;
       } else {
         return false;
       }
     } else {
-      if (year % 4 == 0) {
+      if (year % 4 === 0) {
         return true
       }
       else {
@@ -57,6 +44,8 @@ function DayFinder(props) {
       }
     }
   }
+
+  //for day predictor
   const dayArray = [
     [0, 'Sunday'],
     [1, 'Monday'],
@@ -66,11 +55,11 @@ function DayFinder(props) {
     [5, 'Friday'],
     [6, 'Saturday']
   ]
-  var day=""
+  var day = ""
   const dayFinal = () => {
     dayArray.forEach(e => {
       if (sum === e[0]) {
-        day+=e[1]
+        day += e[1]
       }
     });
   }
@@ -87,29 +76,16 @@ function DayFinder(props) {
       return 0
     }
   }
-  let a = birthYear.toString()
+  let a = year.toString()
   let b = a[a.length - 2] + a[a.length - 1] //getting last two values
-  let yearNum = findYearNum(birthYear) //to find num of year
-  let sum = (yearNum + parseInt(b) + parseInt(b / 4) + monthArray[birthMonth - 1] + parseInt(birthDate)) % 7
+  let yearNum = findYearNum(year) //to find num of year
+  let sum = (yearNum + parseInt(b) + parseInt(b / 4) + monthArray[month - 1] + parseInt(date)) % 7
   const findDay = (year, month) => {
-    if (isLeapYear(year)) {
-      if (month <= 2) {
-        sum -= 1
-      }
+    if (isLeapYear(year) && month <= 2) {
+      sum -= 1
     }
   }
-  findDay(birthYear, birthMonth)
+  findDay(year, month)
   dayFinal()
+*/
 
-  return (
-    <div className='cald-div'>
-      <InputFields dateFunc={getDate} monthFunc={getMonth} yearFunc={getYear} />
-      <p>{errorMsg}</p>
-      <div className="txt-div">
-        <p className="title">The Day is <span>{day}</span> </p>
-      </div>
-    </div>
-  )
-}
-
-export default DayFinder

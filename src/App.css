@@ -1,26 +1,22 @@
 .app{
+    min-width: fit-content;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    padding: 20px 0;
+    padding: 20px;
 }
 .app>h2{
     margin: 10px 0;
 }
-.dayfinder{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.dayfinder-header{
+.header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
-    margin: 10px 0;
+    width: 100%;
+    margin: 20px 0;
 }
 .change-btn{
     padding: 5px 15px;
@@ -29,7 +25,34 @@
     border: none;
     color: white;
     font-weight: 300;
+    padding: 10px 20px;
+    cursor: pointer;
     background-color: rgb(79, 68, 92);
+}
+.change-btn:hover{
+    background-color: rgb(46, 43, 51);
+}
+.container {
+    min-height: fit-content ;
+    height: 70vh;
+    width: 50vw;
+    background-color: #ffffff;
+    color: black;
+    padding: 10px;
+    border-radius: 50px;
+    border-bottom-right-radius: 150px;
+}
+.txt-div {
+    padding: 10px;
+}
+
+.title {
+    font-size: 30px ;
+}
+@media screen and (max-width:900px){
+    .container{
+        width: 70vw !important;
+    }
 }
 @media screen and (max-width:576px) {
     .app{
@@ -39,10 +62,19 @@
     .app>h1{
         margin: 5px;
     }
-    .dayfinder-header{
+    .header{
         width: 100%;
     }
     .change-btn{
         font-size: 13px;
     }
+    .container {
+        width: 90vw !important;
+        height: fit-content;
+        border-radius: 20px;
+    }
+    .title {
+        font-size: 20px !important;
+    }
+    
 }
